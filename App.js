@@ -1,17 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import data from './assets/data/nasdaq.json';
 
 export default function App() {
   /* jshint ignore:start */
+
+  const [nasdaqData, setNasdaqData] = useState([])
+
+
+  function fetchNasdaqData() {
+    setNasdaqData(data);
+  }
+
+  useEffect(()=> {
+    fetchNasdaqData();
+  })
   return (
-    <View style={styles.container}>
-      <Text>
-        Open up App.js to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <FlatList 
+      data={nasdaqData}
+      contentContainerStyle={styles.container}
+      keyExtractor={item => item.Symbol}
+  renderItem={({item}) => <Text style={styles.text}>{item.Symbol} - {item["Company Name"]}</Text>}
+      />
+    );
 /* jshint ignore:end */
 }
 
