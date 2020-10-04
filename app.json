@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "stock_ai",
-    "slug": "stock_ai",
+    "name": "FinanceAI",
+    "slug": "financeai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
@@ -21,6 +21,7 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }
